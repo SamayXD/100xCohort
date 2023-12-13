@@ -1,3 +1,3 @@
-f(user["gender"] == "Male"){
-        console.log(user["firstName"])
-    }
+ // a.then(function(data){
+    //     console.log("data");
+    // })

@@ -1,19 +1,41 @@
-const fs = require("fs");
-// filesystem module
+// const fs = require("fs");
+// // filesystem module
+
+const { resolve } = require("path");
 
 
-function readTheFile(callback)
-{
-    fs.readFile("/Users/samayn/Desktop/Git-CO/100xCohort/week_1/a.txt", "utf-8", function(err, data){
-        callback(data)
-    });  
+// function readTheFile()
+// {
+//     return new Promise(function(resolve){
+//         fs.readFile("/Users/samayn/Desktop/Git-CO/100xCohort/week_1/a.txt", "utf-8", function(err, data){
+//             resolve(data);
+//         });  
+//     });
+// }
+
+// function onDone(data){
+//     console.log("Called Done on : " + data);
+// }
+
+// readTheFile().then(onDone);
+
+// let ans = 3;
+function letsWait(){
+    var a= 0;
+    return new Promise(function(resolve){
+        for(var i = 1; i<=10; i++){
+            a = a+i;
+        }
+        resolve(a);
+    });
 }
 
-function onDone1(data){
-    console.log("Called Done ONE on : " + data);
-}
-function onDone2(data){
-    console.log("Called Done TWO on : " + data);
+ function main(){
+    var a = letsWait();
+    a.then(function(data){
+        console.log(data);
+    });
 }
 
-readTheFile(onDone2);
+main();
+console.log("After main");
