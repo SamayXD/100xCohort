@@ -1,66 +1,19 @@
-/* 
-let people = [{
-    firstName: "Samay",
-    gender: "Male",
-}, {
-    firstName: "Rohit",
-    gender: "Male",
-}, {
-    firstName: "Gayatri",
-    gender: "Female",
-}, {
-    firstName: "Prathamesh",
-    gender: "Male",
-}]
+const fs = require("fs");
+// filesystem module
 
 
-numberOfUsers = people.length
-console.log(numberOfUsers)
-
-for (let i = 0; i < numberOfUsers; i++) {
-    user = people[i];
-    // console.log(user["firstName"])
-    if (user["gender"] == "Male") {
-        console.log(user["firstName"]);
-    }
+function readTheFile(callback)
+{
+    fs.readFile("/Users/samayn/Desktop/Git-CO/100xCohort/week_1/a.txt", "utf-8", function(err, data){
+        callback(data)
+    });  
 }
-*/
 
-// function doSum(a , b, show){
-//     show(a+b);
-// }
-
-// function show(data){
-//     console.log(data)
-// }
-
-// function show2(data){
-//     console.log(data + " 2")
-// }
-
-// doSum(5,7,show2)
-
-// function calc(a,b, toCall){
-//     toCall(a,b)
-// }
-
-// function doSum(a , b){
-//     console.log(a+b);
-// }
-// function doSub(a , b){
-//     console.log(a-b);
-// }
-
-// function hello()
-// {
-//     console.log("Virus Found...")
-// }
-
-// setInterval(hello, 1*200)
-
-
-let a = 0
-
-for (let i = 0; i<=10000000000000000; i++){
-    a = a+i
+function onDone1(data){
+    console.log("Called Done ONE on : " + data);
 }
+function onDone2(data){
+    console.log("Called Done TWO on : " + data);
+}
+
+readTheFile(onDone2);
