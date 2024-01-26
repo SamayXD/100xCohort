@@ -9,7 +9,6 @@ app.listen(onPort,function(){
     console.log(`Started on ${onPort}`);
 });
 
-
 var users = [{
     name : 'John',
     kidneys:[{
@@ -18,6 +17,16 @@ var users = [{
             healthy: true
         }]
 }]
+
+app.get("/mobile", function(req, res){
+
+    let name = req.query.name
+    
+    console.log("Mobile Detected");
+    res.json({
+        "message" : name
+    })
+});
 
 app.get("/",function(req,res){
     let JohnKidney = users[0].kidneys;
