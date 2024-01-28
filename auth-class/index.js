@@ -6,7 +6,7 @@
 // app.use(express.json());
 
 // mongoose.connect(
-//   "mongodb+srv://admin:admin@cluster0.4ckxcao.mongodb.net/",
+//   "<Connection link>/",
 // );
 
 // const User = mongoose.model("User", {
@@ -82,7 +82,7 @@ const jwtPassword = "123456";
 
 const app = express();
 app.use(express.json());
-mongoose.connect("mongodb+srv://admin:admin@cluster0.4ckxcao.mongodb.net/");
+mongoose.connect("Connection link>");
 
 const user = mongoose.model("Users", {
   name: String,
