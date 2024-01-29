@@ -1,0 +1,45 @@
+<html>
+<script>
+    let timeo;
+    function debounceDiv(){
+        clearTimeout(timeo)
+
+        timeo = setTimeout(function(){
+            populateDiv()
+        }, 1000)
+
+    }
+
+    async function populateDiv(){
+        const ele = document.getElementById("finalSum")
+        const one = document.getElementById("noOne").value
+        const two = document.getElementById("noTwo").value
+
+        // // ele.innerHTML = parseInt(one) + parseInt(two)
+        // fetch(`https://sum-server.100xdevs.com/sum?a=` + one + "&b=" + two).then(
+        //     function(response){
+        //         response.text().then(function(ans)
+        //         {
+        //         // const ans = response
+        //         console.log(ans)
+        //         ele.innerHTML = ans
+        //         })
+        //     }
+        // )
+        const res = await fetch(`https://sum-server.100xdevs.com/sum?a=` + one + "&b=" + two);
+        const ans = await res.text()
+        ele.innerHTML = ans
+
+    }
+</script>
+<body>
+    <input type="text" oninput="debounceDiv()" id="noOne" placeholder="First Numer"></input>
+    <br/>
+    <br/>
+    <input type="text" id="noTwo" oninput="debounceDiv()" placeholder="Two Numer"></input>
+
+    <br/>    <br/>
+    <div id="finalSum"></div>
+</body>
+</html>
+
