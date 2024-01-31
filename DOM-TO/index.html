@@ -1,0 +1,79 @@
+<html >
+
+<style>
+    .bstyle{
+        align-items: center;
+        width: 200px;
+        border-radius: 10px;
+        height: 30px;
+        border-width: 1px;
+        box-shadow: 0px 0px 0px 0px rgb(0, 0, 0);
+        transition: .3s;
+        background-image: linear-gradient(beige, rgb(250, 250, 206));
+
+    }
+    .bstyle:hover{
+        background-image: linear-gradient(140deg, beige, rgb(132, 245, 95));
+        box-shadow: 3px 3px 0px 0px rgb(0, 0, 0);
+    }
+    .bstyle:active{
+        background-color: rgb(132, 245, 95);
+    }
+    .tstyle{
+        width: 200px;
+        border-radius: 10px;
+        padding-left: 10px;
+        height: 30px;
+        background-color: beige;
+
+        border-width: 1px;
+        box-shadow: 0px 0px 0px 0px rgb(0, 0, 0);
+        transition: .3s;
+    }
+    .tstyle:hover{
+        box-shadow: 3px 3px 0px 0px rgb(0, 0, 0);
+    }
+    .bgstyle{
+        background-image: linear-gradient(135deg, rgb(255, 255, 255), rgb(0, 0, 0));
+    }
+    .headText{
+        background: linear-gradient(45deg, rgb(90, 65, 255), rgb(0, 0, 0));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        width: fit-content;
+    }
+</style>
+<script>
+    function addTodo(){
+        const title = document.getElementById("title").value
+        const desc = document.getElementById("desc").value
+        const outerDiv = document.createElement("div");
+        const titleDiv = document.createElement("div");
+        const descDiv = document.createElement("div");
+        const mark = document.createElement("button");
+        titleDiv.innerHTML = title
+        descDiv.innerHTML = desc
+        mark.innerHTML = "DONE"
+        mark.setAttribute("class", "bstyle")
+        outerDiv.appendChild(titleDiv)
+        outerDiv.appendChild(descDiv)
+        outerDiv.appendChild(mark)
+
+        document.getElementById("container").appendChild(outerDiv)
+            }
+</script>
+<body class ="bgstyle">
+    <h1 class = "headText ">Hello Text</h1>
+    <input class = "tstyle" id="title" type="text" placeholder="Title"></input>
+    <br/>
+    <br/>
+    <input class = "tstyle" id="desc" type="text" placeholder="Desc"></input>
+    <br/>
+    <br/>
+    <button class = "bstyle" onclick="addTodo()">Add Todo</button>
+
+    <div id = "container">
+    </div>
+</body>
+</html>
+
