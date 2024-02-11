@@ -1,26 +1,49 @@
 import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setToDo] = useState([
+    {
+      Title: "Tod1",
+      Desc: "alksdfjh",
+    },
+    {
+      Title: "Tod2",
+      Desc: "alksdfjh",
+    },
+    {
+      Title: "Tod3",
+      Desc: "alksdfjh",
+    },
+  ]);
+
+  function addNewTo() {
+    setToDo([
+      ...todos,
+      {
+        Title: "New this",
+        Desc: "New Desc",
+      },
+    ]);
+  }
 
   return (
     <div>
-      <CustomButtom count={count} setCount={setCount} />
-      <br></br>
-      <br></br>
+      <button onClick={addNewTo}>Add New ToDO</button>
 
-      <div>The current Count it {count}</div>
+      {todos.map(function (todo) {
+        return <Todo Title={todo.Title} Desc={todo.Desc}></Todo>;
+      })}
     </div>
   );
 }
 //Here this is a component
-function CustomButtom(props) {
-  function incr() {
-    props.setCount(props.count + 1);
-    console.log(props.count);
-  }
-
-  return <button onClick={incr}>Counter {props.count}</button>;
+function Todo(props) {
+  return (
+    <div>
+      <h1>{props.Title}</h1>
+      <h2>{props.Desc}</h2>
+    </div>
+  );
 }
 
 export default App;
